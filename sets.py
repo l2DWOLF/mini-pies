@@ -1,4 +1,4 @@
-
+from utils import color_prt as cp
 riverbank = {"Pool", "24/7 Doorman", "Fitness Center", 
              "Grilling Stations", "Resident Lounge"}
 henryhall = {"W/D in unit", "24/7 Doorman", "Fitness Center",
@@ -24,9 +24,16 @@ landon_object = {
 }
 
 print("\n",landon_object["address"], landon_object["amenities"], "\n")
+
+for key in henry_object.keys():
+    print('key: ', key)
+for value in henry_object.values():
+    print('val: ',value)
+print('\n')
+
 for key, value in river_object.items():
-    landon_object.add(key,value)
-    print(landon_object)
+    landon_object[key+" river's"] = value
+print("landon+river Object: ", landon_object)
 
 print(f"\033[96m")
 # .union(riverbank)
@@ -65,3 +72,20 @@ duplist = [1,1,2,2,3,3,4,5,6,7]
 duplist = list(set(duplist))
 print(duplist, end= "", flush=True)
 print(f"\033[0m")
+
+pet_dict = {
+    "name": "Ray",
+    "age": 17.14286,
+    "type": "Dog",
+    "status": "Happy", 
+    "phrase": "Forver until proven otherwise"
+}
+
+key = "age"
+if key in pet_dict:
+    print(cp.print(
+        "cyan", f"❤️❤️❤️    Age: {round(pet_dict[key])}, Human Age: {pet_dict[key]*7:.4f} ❤️❤️❤️"))
+if "birthday" not in pet_dict:
+    pet_dict["birthday"] = "August 15th"
+for key, value in pet_dict.items():
+    print(key,":", value)
