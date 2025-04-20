@@ -1,5 +1,5 @@
 from random import choices
-from utils import ascii_chars as ac
+from utils import ascii_chars as ac, color_prt as cp
 
 # Run App Loop
 run_generator = True
@@ -8,7 +8,7 @@ while (run_generator):
                     ac.digits_list, ac.symbols_list]
     generated_pass = ""
 # Get User Input
-    pass_length = int(input("Enter Password Length: \n"))
+    pass_length = int(input(cp.print("cyan", "Enter Password Length: \n")))
     pass_uppercase = input("Use Uppercase Letters?  [y/n] \n").lower() == 'y'
     pass_lowercase = input("Use Lowercase Letters? [y/n] \n").lower() == 'y'
     pass_digits = input("Use digits? [y/n] \n").lower() == 'y'
@@ -27,9 +27,8 @@ while (run_generator):
         list_type = choices(master_list)[0]
         generated_pass += choices(list_type)[0]
 # Print Generated Password, Select New or Quit.
-    print(f"Your Random Password is: {generated_pass}")
+    print(cp.print("cyan", f"Your Random Password is: {generated_pass}"))
 # Restart or Quit
-    new_or_close = input(
-        "Enter any key to Generate a New Pass, Enter [quit] to Quit\n").lower()
+    new_or_close = input(cp.print("yellow", "Enter any key to Generate a New Pass, Enter [quit] to Quit\n")).lower()
     if (new_or_close == "quit"):
         run_generator = False
