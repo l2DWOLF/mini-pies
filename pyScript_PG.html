@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-escaper@3.0.3/index.js"></script>
+    <title>Document</title>
+
+    <style>
+        body{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #display{
+            color: red;
+            background: purple;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50vw;
+            max-height: 75vh;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="display">Display</div>
+    <input id="uinput" type="text">Input: </input>
+    <button id="input-btn">Click It</button>
+
+    <py-script>
+from pyscript import document
+from pyodide.ffi import create_proxy
+
+display = document.getElementById('display')
+inputBtn = document.getElementById('input-btn')
+
+# Example: generate 10 starting paragraphs
+for i in range(5):
+    parag = document.createElement("p")
+    parag.textContent = f"Bot Message: {i+1}"
+    display.appendChild(parag)
+
+def showInput(event):
+    userInput = document.getElementById('uinput').value
+    user_p = document.createElement("p")
+    user_p.textContent = "User: " + userInput
+    display.appendChild(user_p)
+    document.getElementById('uinput').value = ""
+
+proxy_showInput = create_proxy(showInput)
+inputBtn.addEventListener("click", proxy_showInput)
+
+    </py-script>
+</body>
+
+</html>
+

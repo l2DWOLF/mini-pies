@@ -52,7 +52,7 @@ while (run_generator):
                 rand_pass += choices(list_type)[0]
             generated_pass.add(rand_pass)
     except IndexError:
-        print("Out of Range Dude")
+        print("Out of Range.")
     except Exception as e:
         print("Invalid Password Length.\n[Error]: ", e)
         print(f"{e.with_traceback}")
