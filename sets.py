@@ -89,3 +89,50 @@ if "birthday" not in pet_dict:
     pet_dict["birthday"] = "August 15th"
 for key, value in pet_dict.items():
     print(key,":", value)
+
+students = {
+    'Elsa': [90, 85, 95],
+    'Anna': [89, 79 ,93],
+    'Olaf': [90, 95, 97]
+}
+
+for key in students.keys():
+    print(key)
+for value in students.values():
+    print(value)
+for key, value in students.items():
+    print(key, value)
+
+for key, value in students.items():
+    avg = 0
+    sum = 0
+    for i in range(len(value)):
+        sum += value[i]
+    avg = sum / len(value)
+    print(f"{key}'s Average: {avg}")
+
+students["Hans"] = [60, 70, 75]
+print("New Student: ", students)
+students["Christoph"] = [95, 98, 99]
+students.pop("Hans")
+print("Removed Hans & New Student: ", students)
+
+word = "supercalifragilisticexpialidocious"
+count = 0
+for char in word:
+    if char == "e":
+        count += 1
+print("char count: ", count)
+u_chars = set(word)
+print("Unique Chars: ", u_chars)
+
+nums = [1,2,3,2,4,1,5,6,6,7]
+u_nums = list(set(nums))
+print("Unique Nums: ", u_nums)
+
+for num in u_nums:
+    count = 0
+    for i in range(len(nums)):
+        if num == nums[i]:
+            count += 1
+    print(f"{num}'s count: {count}")
