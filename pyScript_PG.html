@@ -16,33 +16,107 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height:100%;
+            row-gap: .5em;
+            border: 2px solid rgb(238, 238, 238);
+            background: #4b4453;
+        }
+        *{
+             border: 2px solid rgb(77, 77, 133);
+             border-radius: 8px;
+             padding: 3px
+        }
+        .wrapper{
+            text-align: center;
+            gap: .2em;
         }
         #display{
-            color: red;
-            background: purple;
+            color: white;
+            background: rgba(26, 24, 26, 0.252);
 
             display:flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            width: 50vw;
-            max-height: 75vh;
+            width: 75vw;
+            height: 50vh;
+            max-height: 40vh;
             overflow: scroll;
+            scrollbar-width: none;
+            border-radius: 15px;
+            padding: 1em
         }
+        #user-display{
+            color: white;
+            background: rgb(49, 45, 49);
+
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width: 75vw;
+            height: 15vh;
+            max-height: 25vh;
+            row-gap: .3em;
+            overflow: scroll;
+            scrollbar-width: none;
+            border-radius: 15px;
+            padding: 1em
+        }
+#uinput{
+    width: 60%;
+    height: 150px;
+    background: #4b4453;
+    border-radius: 10px;
+}
+
+button{
+    box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:2px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+}
+button:hover{
+    background: #3d94f6;
+    border:2px solid #1570cd;
+}
+
     </style>
 </head>
 
 <body>
 
-    <div id="display">Display</div>
-    <input id="uinput" type="text">Input: </input>
-    <button id="input-btn">Click It</button>
+    <div class="wrapper">
+        <h1>Console Display</h1>
+        <div id="display">Display</div>
+            
+        <h3>User Display</h3>
+        <div id="user-display">
+            <label for="input-field">Console Input: </label>
+            <input id="uinput" type="text" name="input-field"></input>
+            <div class="btn-div">
+                <button id="input-btn">Click It</button>
+                <button id="input-btn">Clear</button>
+            </div>
+        
+        </div>
 
-    <py-script>
+    </div>
+
+    <py-script >
 from pyscript import document
 from pyodide.ffi import create_proxy
 
 display = document.getElementById('display')
+inputField = document.getElementById('uinput')
 inputBtn = document.getElementById('input-btn')
 
 # Example: generate 10 starting paragraphs
@@ -51,16 +125,23 @@ for i in range(5):
     parag.textContent = f"Bot Message: {i+1}"
     display.appendChild(parag)
 
-def showInput(event):
-    userInput = document.getElementById('uinput').value
+def showInput(event = None):
+    userInput = inputField.value
     user_p = document.createElement("p")
     user_p.textContent = "User: " + userInput
     display.appendChild(user_p)
     document.getElementById('uinput').value = ""
 
-proxy_showInput = create_proxy(showInput)
-inputBtn.addEventListener("click", proxy_showInput)
+def submitKey(event):
+    if event.key == "Enter":
+        showInput()
 
+
+proxy_showInput = create_proxy(showInput)
+proxy_submit_key = create_proxy(submitKey)
+
+inputBtn.addEventListener("click", proxy_showInput)
+inputField.addEventListener("keydown", proxy_submit_key)
     </py-script>
 </body>
 
