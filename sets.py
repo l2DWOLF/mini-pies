@@ -67,7 +67,7 @@ print(buildings)
 print(f"\033[0m")
 
 print(f"\033[90m")
-# List to Set to List without duplicates
+# List to Set to List - remove duplicates
 duplist = [1,1,2,2,3,3,4,5,6,7]
 duplist = list(set(duplist))
 print(duplist, end= "", flush=True)

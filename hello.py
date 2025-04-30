@@ -1,7 +1,3 @@
-# Python Line Comment
-"""
-Multi-Line Comment / DocString
-"""
 from random import randint
 
 print("Hello, Monty'S Python!")

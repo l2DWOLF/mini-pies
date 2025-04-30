@@ -47,7 +47,7 @@ retry_quit = ""
 # Game Rules
 print(
     f"<------------------------------->\n  \t\033[91m-=\033[92mFruits\033[93m Hangman\033[94m=-\033[0m")
-print(cp.print("blue", f"RULES: You have {moves} Attempts to guess the type of fruit to feed the Cat-Owl."))
+print(cp.print("blue", f"RULES: You have {moves} Attempts to guess the type of fruit to feed the Owl-Cat."))
 # Game Loop
 running = True
 while(running):

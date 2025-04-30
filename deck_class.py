@@ -1,7 +1,6 @@
 from random import shuffle
 
 class Card:
-
     def __init__(self, rank:str, suit:str):
         self.rank = rank
         self.suit = suit
@@ -12,7 +11,6 @@ class Card:
         return f"{self.rank} of {self.suit}"
 
 class Deck:
-
     def __init__(self):
         self.cards = []
         ranks = ["2", "3", "4" ,"5", "6", "7", "8", "9","J","Q","K","A"]

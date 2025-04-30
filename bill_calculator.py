@@ -1,6 +1,4 @@
-
 from utils import input_tools as itools
-from logo import logo
 
 running = True
 while running:
@@ -40,4 +38,3 @@ while running:
         print("Resetting Order Information.")
     else:
         print("Incorrect Entry, enter 1 to accept or 2 to declide")
-    print(logo)

@@ -40,9 +40,6 @@ shuffle(ul)
 print(f"Shuffled: {ul}")
 print(f"Sorted: {sorted(ul)}")
 
-grade = int(input("Enter Grade:\n"))
-print("Pass" if grade > 70 else "Try Again")
-
 def mult_table():
     mult_dim = []
     for row in range(1, 11):
@@ -56,13 +53,6 @@ dim_arr = mult_table()
 print(dim_arr[2][5])
 for dimension in dim_arr:
     print(dimension, sep="\t")
-
-def rect():
-    for col in range(20):
-        print("*", end="")
-    for row in range(5):
-        print("*" * col)
-rect()
 
 def suminmax(*args):
     sum = 0

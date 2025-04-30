@@ -154,7 +154,6 @@ def submitKey(event):
     if event.key == "Enter":
         showInput()
 
-
 proxy_showInput = create_proxy(showInput)
 proxy_submit_key = create_proxy(submitKey)
 
@@ -164,4 +163,3 @@ inputField.addEventListener("keydown", proxy_submit_key)
 </body>
 
 </html>
-
