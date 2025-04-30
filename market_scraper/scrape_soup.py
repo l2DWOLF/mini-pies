@@ -23,6 +23,19 @@ for link in links:
     print(link.get('href'))
 
 images = soup.find_all('img')
+count = 1
 for image in images:
-    print(image.get('alt'))
-    print(image.get('src'))
+    
+    src = image.get('src')
+    src = f'http://www.w3schools.com{src}'
+    file_name = src.split('/')[-1]
+    res = requests.get(src)
+    binary_data = res.content
+    
+    f = open(file_name, 'wb')
+    f.write(binary_data)
+    f.close()
+    count += 1
+
+
+

@@ -2,3 +2,10 @@ main.py
 animals_oop.py
 hello.py
 deck_class.py
+market_scraper/
+market_scraper/scrape_soup.py
+crm/
+crm/crm.html
+crm/crm.py
+what_if.py
+sets.py

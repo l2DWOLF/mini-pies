@@ -16,7 +16,6 @@ while True:
 
     count = 1
     score = 0
-
     for result in results:
         question = html.unescape(result['question'])
         correct_ans = result['correct_answer']
