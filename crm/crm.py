@@ -25,7 +25,7 @@ print(p.print_client())
 p.update_client(5000)
 print(p)
 
-for key,value in p:
+for key,value in p.items():
     print(f"\nKey {key}, value {value}")
 
 """ clientp = document.createElement('p')
