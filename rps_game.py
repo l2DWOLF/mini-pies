@@ -10,9 +10,7 @@ def disp_move(move, ptype):
         print(f"{ptype} {hands.scissors}")
 
 quit_greet = ['See you Soon!', 'Rate Us!', 'Leave Feedback!']
-player_joker = 0
 player_score = 0
-player_points = 0
 bot_score = 0
 total_rounds = 1
 tied_rounds = 0

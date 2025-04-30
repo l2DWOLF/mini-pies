@@ -32,7 +32,7 @@ while running:
         elif(user_tip_amt >= 20):
             print("THANK YOU!")
         else:
-            print("for electronic receipt enter mobile number.")
+            print("See you soon.")
         running = False
     elif user_confirmation == 2:
         print("Resetting Order Information.")
